@@ -97,7 +97,7 @@ app.post("/register",(req,res)=>{
     const Newuser = new user({
         name : req.body.name,
         email : req.body.email,
-        username : req.body.username,
+        UserName : req.body.UserName,
         password : req.body.password
     })
     Newuser.save()
@@ -109,7 +109,7 @@ app.get('/login',(req,res)=>{
     res.sendFile(__dirname + '/public/login.html')
 })
 app.post('/login',passport.authenticate('local',{failureRedirect:'/login'}),(req,res) => {
-     res.send(`Welcome ${req.user.username}`);
+     res.send(`Welcome ${req.user.UserName}`);
     }
 );
 app.listen(8000,()=>{
